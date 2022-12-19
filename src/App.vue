@@ -1,6 +1,10 @@
 <template>
     <div class="app">
         <header>
+            <div class="title">
+                <img src="./assets/img/heart.svg" alt="Site Logo">
+                <h1>Hyrule Jobs</h1>
+            </div>
             <div class="order">
                 <button
                     @click="handleClick('title')"
@@ -70,5 +74,16 @@
     }
     button.active {
         border: 3px solid #1195c9;
+    }
+    header .title {
+        display: flex;
+        justify-content: center;
+    }
+    header img {
+        width: 60px;
+        margin-right: 20px;
+    }
+    header h1 {
+        font-size: 3em;
     }
 </style>

@@ -1,10 +1,11 @@
 <template>
     <div class="job-list">
         <p>Ordered by <span style="text-transform: capitalize">{{ order }}</span></p>
-        <ul>
+        <transition-group tag="ul" name="list">
             <li v-for="job in orderedJobs" :key="job.id">
                 <h2>{{ job.title }} in {{ job.location }}</h2>
                 <div class="salary">
+                    <img src="../assets/img/rupee.svg" alt="Rupee">
                     <p>{{ job.salary.toLocaleString() }} rupees</p>
                 </div>
                 <div class="description">
@@ -13,13 +14,13 @@
                     </p>
                 </div>
             </li>
-        </ul>
+        </transition-group>
     </div>
 </template>
 
 
 <script setup lang="ts">
-    import { defineProps, PropType, computed } from 'vue';
+    import { PropType, computed } from 'vue';
     import Job from '../types/Job';
     import OrderTerm from '../types/OrderTerm';
 
@@ -71,5 +72,8 @@
         color: #17bf66;
         font-weight: bold;
         margin: 10px 4px;
+    }
+    .list-move {
+        transition: all 0.4s;
     }
 </style>
