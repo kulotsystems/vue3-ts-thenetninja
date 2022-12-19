@@ -1,6 +1,6 @@
 <template>
     <div class="app">
-        <p>{{ jobs[0].location }}</p>
+        <job-list :jobs="jobs" />
     </div>
 </template>
 
@@ -8,6 +8,7 @@
 <script setup lang="ts">
     import { ref } from 'vue';
     import Job from './types/Job';
+    import JobList from './components/JobList.vue';
 
     const jobs = ref<Job[]>([
         { id: '1', title: 'Farm Worker' , location: 'Lon Lon Ranch' , salary  : 30000 },
