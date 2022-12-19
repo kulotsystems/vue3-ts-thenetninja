@@ -1,5 +1,6 @@
 <template>
     <div class="job-list">
+        <p>Ordered by <span style="text-transform: capitalize">{{ order }}</span></p>
         <ul>
             <li v-for="job in jobs" :key="job.id">
                 <h2>{{ job.title }} in {{ job.location }}</h2>
@@ -20,11 +21,16 @@
 <script setup lang="ts">
     import { defineProps, PropType } from 'vue';
     import Job from '../types/Job';
+    import OrderTerm from '../types/OrderTerm';
 
     defineProps({
         jobs: {
             required: true,
             type: Array as PropType<Job[]>
+        },
+        order: {
+            required: true,
+            type: String as PropType<OrderTerm>
         }
     });
 </script>
